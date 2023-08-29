@@ -23,7 +23,7 @@ public class JavaIngestionFrameworkApplication {
 
 	public static void main(String[] args) throws TimeoutException {
 
-	//	System.setProperty("hadoop.home.dir", "D:/Configuration/hadoop-2.7.3");
+		System.setProperty("hadoop.home.dir", "D:/configurations/hadoop-2.7.3");
 		SpringApplication.run(JavaIngestionFrameworkApplication.class, args);
 
 

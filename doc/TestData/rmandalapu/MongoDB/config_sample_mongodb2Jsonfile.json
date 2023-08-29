@@ -1,0 +1,31 @@
+{
+"mode": "batch",
+"jobs": [
+   {
+      "name": "job1",
+      "description": " Read from MONGO Database table",
+      "mongoInputs":[
+         {
+            "dataFrameName": "DF3",
+            "uri": "mongodb+srv://rmandalapu:auwXSZorRRxUXaME@cluster0-vtrxa.azure.mongodb.net/test?w=majority",
+            "database": "sample_training",
+            "collection": "trips",
+            "selectCol" : ["*"],
+            "filter": "none"
+
+         }
+      ],
+      "fileOutputs": [
+         {
+            "dataFrameName": "DF3",
+            "format": "json",
+            "fileOutPath": "D:/NisumCopy/OutputData/Json_trips",
+            "mode": "Overwrite",
+            "partitions": 2,
+            "header": true,
+            "delimiter": ","
+         }
+      ]
+   }
+]
+}

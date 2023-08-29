@@ -1,0 +1,39 @@
+{
+"mode": "batch",
+"jobs": [
+	{
+		"name": "job2",
+		"description": " Write into SNOWFLAKE table",
+		"fileInputs":[
+			{
+				"dataFrameName": "DF1",
+				"fileInPath": "D:/NisumCopy/InputData/csv",
+				"archivalPath": " ",
+				"selectCol" : ["*"],
+				"filter" : "None",
+				"dataFormat":{
+					"dataFormat": "csv",
+					"header": true,
+					"delimiter": ",",
+					"inferSchema": false,
+					"multiLine": false
+				}
+			}
+		],
+        "sfOutputs":[
+			{
+				"dataFrameName": "DF1",
+				"sfURL": "https://vk89750.west-us-2.azure.snowflakecomputing.com/",
+				"sfAccount": "vk89750",
+				"sfUser": "RMANDALAPU",
+				"sfPassword": "M@nd@l@pu@21",
+				"sfDatabase": "SALES",
+				"sfSchema": "DATAINGESTION",
+				"sfRole": "ACCOUNTADMIN",
+				"dbtable": "Employees_D",
+				"mode": "overwrite"
+			}
+		]
+	}
+]
+}

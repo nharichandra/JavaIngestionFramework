@@ -1,0 +1,32 @@
+{
+"mode": "batch",
+"jobs": [
+   {
+      "name": "job2",
+      "description": " Read from Database table",
+      "dbmsInputs":[
+         {
+            "dataFrameName": "DF3",
+            "url": "jdbc:oracle:thin:@localhost:1522:orcl1",
+            "driver": "oracle.jdbc.driver.OracleDriver",
+            "user": "scott",
+            "password": "tiger",
+            "dbtable": "emp",
+            "selectCol": ["EMPNO","ENAME","JOB","SAL","DEPTNO"],
+            "filter": "job='CLERK'"
+         }
+      ],
+      "fileOutputs": [
+         {
+            "dataFrameName": "DF3",
+            "format": "parquet",
+            "fileOutPath": "C:/DataIngestionFiles/Outfiles/",
+            "mode": "Overwrite",
+            "partitions": 2,
+            "header": true,
+            "delimiter": ","
+         }
+      ]
+   }
+]
+}

@@ -1,0 +1,33 @@
+{
+"mode": "batch",
+"jobs": [
+	{
+		"name": "job2",
+		"description": " Write into MONGO Database table",
+		"fileInputs":[
+			{
+				"dataFrameName": "DF1",
+				"fileInPath": "D:/NisumCopy/InputData/csv/Employees.csv",
+				"archivalPath": " ",
+                "selectCol" : ["EMPLOYEE_ID","FIRST_NAME","LAST_NAME","EMAIL","PHONE_NUMBER","HIRE_DATE","JOB_ID","SALARY","COMMISSION_PCT","MANAGER_ID","DEPARTMENT_ID"],
+				"dataFormat":{
+					"dataFormat": "csv",
+					"header": true,
+                    "delimiter": ",",
+					"inferSchema": false,
+					"multiLine": false
+				}
+			}
+		],
+        "mongoOutputs":[
+			{
+				"dataFrameName": "DF1",
+				"uri": "mongodb+srv://rmandalapu:auwXSZorRRxUXaME@cluster0-vtrxa.azure.mongodb.net/test?w=majority",
+				"database": "HR",
+				"collection": "Employees_stg",
+				"mode": "overwrite"
+			}
+		]
+	}
+]
+}

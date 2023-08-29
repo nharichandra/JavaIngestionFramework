@@ -1,0 +1,30 @@
+{
+"mode": "batch",
+"jobs": [
+   {
+      "name": "job2",
+      "description": " Read from MONGO Database table",
+      "mongoInputs":[
+         {
+            "dataFrameName": "DF3",
+            "uri": "mongodb://localhost:27017",
+            "database": "myNewDB",
+            "collection": "emp",
+            "selectCol" : ["EMPNO","ENAME","JOB","SAL","DEPTNO"],
+            "filter" : "job IN ('CLERK', 'ANALYST')"
+         }
+      ],
+      "fileOutputs": [
+         {
+            "dataFrameName": "DF3",
+            "format": "csv",
+            "fileOutPath": "C:/DataIngestionFiles/Outfiles/",
+            "mode": "Overwrite",
+            "partitions": 2,
+            "header": true,
+            "delimiter": ","
+         }
+      ]
+   }
+]
+}

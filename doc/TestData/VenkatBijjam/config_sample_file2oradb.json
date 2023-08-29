@@ -1,0 +1,36 @@
+{
+"mode": "batch",
+"jobs": [
+	{
+		"name": "job2",
+		"description": " Write into MONGO Database table",
+		"fileInputs":[
+			{
+				"dataFrameName": "DF1",
+				"fileInPath": "C:/DataIngestionFiles/Infiles/emp.csv",
+				"archivalPath": " ",
+				"selectCol" : ["*"],
+				"filter" : "None",
+				"dataFormat":{
+					"dataFormat": "csv",
+					"header": true,
+					"delimiter": ",",
+					"inferSchema": false,
+					"multiLine": false
+				}
+			}
+		],
+        "dbmsOutputs":[
+			{
+				"dataFrameName": "DF1",
+				"url": "jdbc:oracle:thin:@localhost:1522:orcl1",
+				"driver": "oracle.jdbc.driver.OracleDriver",
+				"user": "pytest",
+				"password": "pytest",
+				"dbtable": "emp",
+				"mode": "overwrite"
+			}
+		]
+	}
+]
+}

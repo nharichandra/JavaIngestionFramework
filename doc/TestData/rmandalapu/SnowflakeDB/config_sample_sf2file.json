@@ -1,0 +1,35 @@
+{
+"mode": "batch",
+"jobs": [
+   {
+      "name": "job2",
+      "description": " Read from SNOWFLAKE table",
+      "sfInputs":[
+         {
+            "dataFrameName": "DF3",
+            "sfURL": "https://vk89750.west-us-2.azure.snowflakecomputing.com/",
+            "sfAccount": "vk89750",
+            "sfUser": "RMANDALAPU",
+            "sfPassword": "M@nd@l@pu@21",
+            "sfDatabase": "SALES",
+            "sfSchema": "DATAINGESTION",
+            "sfRole": "ACCOUNTADMIN",
+            "query": "SELECT * FROM ITEM",
+            "selectCol" : ["*"],
+            "filter" : "None"
+         }
+      ],
+      "fileOutputs": [
+         {
+            "dataFrameName": "DF3",
+            "format": "CSV",
+            "fileOutPath": "D:/NisumCopy/OutputData/csv_ITEM_SF",
+            "mode": "Overwrite",
+            "partitions": 2,
+            "header": true,
+            "delimiter": "|"
+         }
+      ]
+   }
+]
+}

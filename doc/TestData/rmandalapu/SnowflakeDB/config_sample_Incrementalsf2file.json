@@ -1,0 +1,40 @@
+{
+"mode": "batch",
+"jobs": [
+   {
+      "name": "job2",
+      "description": " Read from SNOWFLAKE table",
+      "sfInputs":[
+         {
+            "dataFrameName": "DF3",
+            "sfURL": "https://vk89750.west-us-2.azure.snowflakecomputing.com/",
+            "sfAccount": "vk89750",
+            "sfUser": "RMANDALAPU",
+            "sfPassword": "M@nd@l@pu@21",
+            "sfDatabase": "SALES",
+            "sfSchema": "DATAINGESTION",
+            "sfRole": "ACCOUNTADMIN",
+            "query": "(SELECT * FROM ITEM where I_ITEM_SK > {minValue} and I_ITEM_SK < {maxValue})",
+            "selectCol" : ["*"],
+            "filter" : "None",
+            "sfdbIncremental": {
+					"maxQuery": "(Select max(I_ITEM_SK) from ITEM )",
+					"auditTableName": "AUDIT2",
+					"ingestionID": "ITEM"
+				}
+         }
+      ],
+      "fileOutputs": [
+         {
+            "dataFrameName": "DF3",
+            "format": "CSV",
+            "fileOutPath": "D:/NisumCopy/OutputData/csv_ITEM_SF_INC",
+            "mode": "Overwrite",
+            "partitions": 2,
+            "header": true,
+            "delimiter": "|"
+         }
+      ]
+   }
+]
+}

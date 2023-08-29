@@ -1,0 +1,47 @@
+{
+  "fields": [
+    {
+      "metadata": {},
+      "name": "lsoa_code",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "metadata": {},
+      "name": "borough",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "metadata": {},
+      "name": "major_category",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "metadata": {},
+      "name": "minor_category",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "metadata": {},
+      "name": "value",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "metadata": {},
+      "name": "year",
+      "nullable": true,
+      "type": "string"
+    },
+    {
+      "metadata": {},
+      "name": "month",
+      "nullable": true,
+      "type": "string"
+    }
+  ],
+  "type": "struct"
+}

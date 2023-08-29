@@ -1,0 +1,165 @@
+{
+   "type":"struct",
+   "fields":[
+      {
+         "name":"data",
+         "type":{
+            "type":"array",
+            "elementType":{
+               "type":"struct",
+               "fields":[
+                  {
+                     "name":"billTo",
+                     "type":{
+                        "type":"struct",
+                        "fields":[
+                           {
+                              "name":"address",
+                              "type":"string",
+                              "nullable":true,
+                              "metadata":{
+
+                              }
+                           },
+                           {
+                              "name":"city",
+                              "type":"string",
+                              "nullable":true,
+                              "metadata":{
+
+                              }
+                           },
+                           {
+                              "name":"name",
+                              "type":"string",
+                              "nullable":true,
+                              "metadata":{
+
+                              }
+                           },
+                           {
+                              "name":"state",
+                              "type":"string",
+                              "nullable":true,
+                              "metadata":{
+
+                              }
+                           },
+                           {
+                              "name":"zip",
+                              "type":"string",
+                              "nullable":true,
+                              "metadata":{
+
+                              }
+                           }
+                        ]
+                     },
+                     "nullable":true,
+                     "metadata":{
+
+                     }
+                  },
+                  {
+                     "name":"isShipped",
+                     "type":"boolean",
+                     "nullable":true,
+                     "metadata":{
+
+                     }
+                  },
+                  {
+                     "name":"name",
+                     "type":"string",
+                     "nullable":true,
+                     "metadata":{
+
+                     }
+                  },
+                  {
+                     "name":"price",
+                     "type":"float",
+                     "nullable":true,
+                     "metadata":{
+
+                     }
+                  },
+                  {
+                     "name":"shipDate",
+                     "type":"date",
+                     "nullable":true,
+                     "metadata":{
+
+                     }
+                  },
+                  {
+                     "name":"shipTo",
+                     "type":{
+                        "type":"struct",
+                        "fields":[
+                           {
+                              "name":"address",
+                              "type":"string",
+                              "nullable":true,
+                              "metadata":{
+
+                              }
+                           },
+                           {
+                              "name":"city",
+                              "type":"string",
+                              "nullable":true,
+                              "metadata":{
+
+                              }
+                           },
+                           {
+                              "name":"name",
+                              "type":"string",
+                              "nullable":true,
+                              "metadata":{
+
+                              }
+                           },
+                           {
+                              "name":"state",
+                              "type":"string",
+                              "nullable":true,
+                              "metadata":{
+
+                              }
+                           },
+                           {
+                              "name":"zip",
+                              "type":"string",
+                              "nullable":true,
+                              "metadata":{
+
+                              }
+                           }
+                        ]
+                     },
+                     "nullable":true,
+                     "metadata":{
+
+                     }
+                  },
+                  {
+                     "name":"sku",
+                     "type":"string",
+                     "nullable":true,
+                     "metadata":{
+
+                     }
+                  }
+               ]
+            },
+            "containsNull":true
+         },
+         "nullable":true,
+         "metadata":{
+
+         }
+      }
+   ]
+}

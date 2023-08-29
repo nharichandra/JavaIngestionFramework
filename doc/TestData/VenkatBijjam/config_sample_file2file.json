@@ -1,0 +1,36 @@
+{
+"mode": "batch",
+"jobs": [
+   {
+      "name": "job2",
+		"description": " Write into MONGO Database table",
+		"fileInputs":[
+			{
+				"dataFrameName": "DF1",
+				"fileInPath": "C:/DataIngestionFiles/Infiles/emp.json",
+				"archivalPath": " ",
+				"selectCol" : ["EMPNO","ENAME","JOB","SAL","COMM","DEPTNO"],
+				"filter" : "job='CLERK'",
+				"dataFormat":{
+					"dataFormat": "json",
+					"header": true,
+					"delimiter": ",",
+					"inferSchema": false,
+					"multiLine": false
+            }
+         }
+      ],
+      "fileOutputs": [
+         {
+            "dataFrameName": "DF1",
+            "format": "csv",
+            "fileOutPath": "C:/DataIngestionFiles/Outfiles",
+            "mode": "overwrite",
+            "partitions": 2,
+            "header": true,
+            "delimiter": ","
+         }
+      ]
+   }
+]}
+

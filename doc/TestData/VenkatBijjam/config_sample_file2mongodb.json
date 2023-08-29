@@ -1,0 +1,34 @@
+{
+"mode": "batch",
+"jobs": [
+	{
+		"name": "job2",
+		"description": " Write into MONGO Database table",
+		"fileInputs":[
+			{
+				"dataFrameName": "DF1",
+				"fileInPath": "C:/DataIngestionFiles/Infiles/emp.json",
+				"archivalPath": " ",
+				"selectCol" : ["EMPNO","ENAME","JOB","SAL","DEPTNO"],
+				"filter" : "job='CLERK'",
+				"dataFormat":{
+					"dataFormat": "json",
+					"header": true,
+					"delimiter": ",",
+					"inferSchema": false,
+					"multiLine": false
+				}
+			}
+		],
+        "mongoOutputs":[
+			{
+				"dataFrameName": "DF1",
+				"uri": "mongodb://localhost:27017",
+				"database": "myNewDB",
+				"collection": "employee",
+				"mode": "append"
+			}
+		]
+	}
+]
+}

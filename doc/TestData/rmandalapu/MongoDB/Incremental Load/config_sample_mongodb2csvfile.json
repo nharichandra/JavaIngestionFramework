@@ -1,0 +1,32 @@
+{
+"mode": "batch",
+"jobs": [
+   {
+      "name": "job1",
+      "description": " Read from MONGO Database table",
+      "mongoInputs":[
+         {
+            "dataFrameName": "DF3",
+            "uri": "mongodb+srv://rmandalapu:auwXSZorRRxUXaME@cluster0-vtrxa.azure.mongodb.net/test?w=majority",
+            "database": "HR",
+            "collection": "Employees",
+            "selectCol" : ["EMPLOYEE_ID","FIRST_NAME","HIRE_DATE","DEPARTMENT_ID"],
+            "filter": "SALARY>20000",
+            "incr_load_flg":"None"
+
+         }
+      ],
+      "fileOutputs": [
+         {
+            "dataFrameName": "DF3",
+            "format": "csv",
+            "fileOutPath": "D:/NisumCopy/OutputData/csv_emp",
+            "mode": "Overwrite",
+            "partitions": 2,
+            "header": true,
+            "delimiter": "|"
+         }
+      ]
+   }
+]
+}

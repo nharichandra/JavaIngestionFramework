@@ -1,0 +1,33 @@
+{
+"mode": "batch",
+"jobs": [
+   {
+      "name": "job1",
+      "description": " Read from MONGO Database table",
+      "mongoInputs":[
+         {
+            "dataFrameName": "DF3",
+            "uri": "mongodb+srv://rmandalapu:auwXSZorRRxUXaME@cluster0-vtrxa.azure.mongodb.net/test?w=majority",
+            "database": "HR",
+            "collection": "Employees",
+            "selectCol" : ["*"],
+            "filter": "none",
+            "incr_col": "EMPLOYEE_ID",
+            "incr_load_flg": "Y",
+            "audit_table_name": "Audit"
+         }
+      ],
+      "fileOutputs": [
+         {
+            "dataFrameName": "DF3",
+            "format": "json",
+            "fileOutPath": "D:/NisumCopy/OutputData/Json_Incr_Emp",
+            "mode": "Overwrite",
+            "partitions": 2,
+            "header": true,
+            "delimiter": ","
+         }
+      ]
+   }
+]
+}

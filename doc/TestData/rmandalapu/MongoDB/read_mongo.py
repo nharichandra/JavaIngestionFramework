@@ -1,0 +1,40 @@
+# -*- coding: utf-8 -*-
+"""
+Created on 04/12/2020 2:01 PM
+
+@author : Nirav Langaliya
+"""
+from dependencies.db_audit import db_audit_query
+from dependencies.schema_utilties import get_mongo_options, get_mongo_reader
+from dependencies.ConvertflatrenJson import flatJson
+
+def mongo_reader(
+        uri,
+        database,
+        collection,
+        selectCols,
+        filter
+
+):
+
+    options = get_mongo_options(
+        uri,
+        database,
+        collection,
+        selectCols
+    )
+
+    reader = get_mongo_reader(
+        options
+    )
+
+    if filter.lower() == "none":
+        dataframe = reader.load().select(selectCols)
+    else:
+        dataframe = reader.load().select(selectCols).filter(filter)
+    try:
+        dataframe=flatJson(dataframe)
+    except:
+        print("Unable to convert nested json")
+
+    return dataframe

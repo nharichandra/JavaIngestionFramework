@@ -1,0 +1,45 @@
+curl --location 'http://localhost:8086/api/v1/dif/jobs' \
+--header 'Content-Type: application/json' \
+--data '{
+"mode": "batch",
+"jobs": [
+	{
+		"name": "job1",
+		"description": " Multiple-File-Input and Multiple-File-Output, with partitioning and schema enforcement ",
+		"fileInputs":[
+			{
+				"dataFrameName": "DF1",
+				"fileInPath": "D:\\interview\\interview_git\\JavaIngestionFramework\\doc\\InputData\\InputFiles\\csv\\abc.csv",
+				"archivalPath": " ",
+                "selectCol": ["C1", "C2", "C3"],
+				"dataFormat":{
+					"dataFormat": "CSV",
+					"header": true,
+					"delimiter": "|",
+					"inferSchema": false,
+					"multiLine": false
+				}
+			}
+		],
+		"fileOutputs": [
+			{
+				"dataFrameName": "DF1",
+				"format": "csv",
+				"fileOutPath": "D:/output/csv",
+				"mode": "Overwrite",
+				"numPartitions": 2,
+				"header": true,
+				"delimiter": "~",
+				"partitionBy": ["C1"],
+                "selectCol": ["C1", "C2", "C3"],
+				"addColumns": [
+					{
+						"columnName": "D1",
+						"columnType": "int",
+						"columnValue": "current_date"
+					}
+				]
+			}
+		]
+	}
+]}'

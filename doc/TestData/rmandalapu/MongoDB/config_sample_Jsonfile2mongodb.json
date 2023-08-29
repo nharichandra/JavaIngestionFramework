@@ -1,0 +1,31 @@
+{
+"mode": "batch",
+"jobs": [
+	{
+		"name": "job2",
+		"description": " Write into MONGO Database table",
+		"fileInputs":[
+			{
+				"dataFrameName": "DF1",
+				"fileInPath": "D:/NisumCopy/InputData/Json_customers",
+				"archivalPath": " ",
+				"dataFormat":{
+					"dataFormat": "json",
+					"header": true,
+					"inferSchema": false,
+					"multiLine": false
+				}
+			}
+		],
+        "mongoOutputs":[
+			{
+				"dataFrameName": "DF1",
+				"uri": "mongodb+srv://rmandalapu:auwXSZorRRxUXaME@cluster0-vtrxa.azure.mongodb.net/test?w=majority",
+				"database": "HR",
+				"collection": "customers_stg",
+				"mode": "overwrite"
+			}
+		]
+	}
+]
+}
